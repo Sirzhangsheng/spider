@@ -56,7 +56,7 @@ class CompanyAttribute(scrapy.Item):
     registration_authority = scrapy.Field()  # 登记机关
     registered_address = scrapy.Field()  # 注册地址
     scope_of_business = scrapy.Field()  # 经营范围
-    score = scrapy.Field()  # 企查查评分
+    # score = scrapy.Field()  # 企查查评分
 
 
 class ZhihuQuestionItem(scrapy.Item):

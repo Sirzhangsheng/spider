@@ -55,29 +55,29 @@ class TianyanchaSpider(scrapy.Spider):
         company_item = CompanyAttribute()
 
         register_number = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[1]/td[2]/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[1]/td[2]/text()").extract_first()
         organization_code = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[1]/td[4]/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[1]/td[4]/text()").extract_first()
         score = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[1]/td[last()]/img/@alt").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[1]/td[last()]/img/@alt").extract_first()
         uniform_credit_code = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[2]/td[2]/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[2]/td[2]/text()").extract_first()
         company_type = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[2]/td[last()]/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[2]/td[last()]/text()").extract_first()
         taxpayer_identification_number = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[3]/td[2]/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[3]/td[2]/text()").extract_first()
         industry = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[3]/td[last()]/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[3]/td[last()]/text()").extract_first()
         business_term = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[4]/td[2]/span/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[4]/td[2]/span/text()").extract_first()
         approved_by_the_deadline = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[4]/td[last()]/text/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[4]/td[last()]/text/text()").extract_first()
         registration_authority = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[5]/td[2]/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[5]/td[2]/text()").extract_first()
         registered_address = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[last()-1]/td[last()]/text()").extract_first()
-        scope_of_business = response.xpath(
-            "//table[@class='table companyInfo-table f14']//tr[last()]//span[@class='js-full-container ']/text()").extract_first()
+            "//table[@class='table -striped-col -border-top-none']//tr[last()-1]/td[last()]/text()").extract_first()
+        # scope_of_business = response.xpath(
+        #     "//table[@class='table companyInfo-table f14']//tr[last()]//span[@class='js-full-container ']/text()").extract_first()
 
         company_item['register_number'] = register_number
         company_item['organization_code'] = organization_code
@@ -103,10 +103,10 @@ class TianyanchaSpider(scrapy.Spider):
         self.browser.get("https://www.tianyancha.com/login")
         self.browser.find_element_by_xpath(
             "//div[@class='modulein modulein1 mobile_box pl30 pr30 f14 collapse in']//input[@class='_input input_nor contactphone']").send_keys(
-            "天眼查账号")
+            "17602660497")
         self.browser.find_element_by_xpath(
             "//div[@class='modulein modulein1 mobile_box pl30 pr30 f14 collapse in']//input[@class='_input input_nor contactword']").send_keys(
-            "天眼查密码")
+            "zjm5288780")
         self.browser.find_element_by_xpath(
             "//div[@onclick='loginByPhone(event);']").click()
         import time

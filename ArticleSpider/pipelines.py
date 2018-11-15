@@ -37,7 +37,7 @@ class JsonWithEncodingPipline(object):
 class MysqlPipeline(object):
     # 采用同步的机制写入mysql
     def __init__(self):
-        self.conn = MySQLdb.connect('127.0.0.1', 'root', 'zhangjun231', 'scrapy', charset="utf8",
+        self.conn = MySQLdb.connect('127.0.0.1', 'root', 'anluozjm291..', 'scrapy', charset="utf8",
                                     use_unicode=True)
         self.cursor = self.conn.cursor()
 
