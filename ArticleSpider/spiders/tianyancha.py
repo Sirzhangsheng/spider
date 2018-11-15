@@ -90,7 +90,7 @@ class TianyanchaSpider(scrapy.Spider):
         company_item['approved_by_the_deadline'] = approved_by_the_deadline
         company_item['registration_authority'] = registration_authority
         company_item['registered_address'] = registered_address
-        company_item['scope_of_business'] = scope_of_business
+        # company_item['scope_of_business'] = scope_of_business
 
         yield company_item
 

@@ -2,10 +2,11 @@ __author__ = 'ZJsnowman'
 # -*- coding:utf-8 -*-
 import requests
 from scrapy.selector import Selector
-import MySQLdb
-import MySQLdb.cursors
+import pymysql
+# import MySQLdb
+# import MySQLdb.cursors
 
-conn = MySQLdb.connect('127.0.0.1', 'root', 'zhangjun231', 'scrapy', charset="utf8", use_unicode=True)
+conn = pymysql.connect('127.0.0.1', 'root', 'zhangjun231', 'scrapy', charset="utf8", use_unicode=True)
 cursor = conn.cursor()
 
 headers = {

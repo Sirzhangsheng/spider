@@ -9,8 +9,9 @@ from scrapy.pipelines.images import ImagesPipeline
 import codecs
 import json
 from scrapy.exporters import JsonItemExporter
-import MySQLdb
-import MySQLdb.cursors
+import pymysql
+# import MySQLdb
+# import MySQLdb.cursors
 from twisted.enterprise import adbapi
 
 
@@ -37,7 +38,7 @@ class JsonWithEncodingPipline(object):
 class MysqlPipeline(object):
     # 采用同步的机制写入mysql
     def __init__(self):
-        self.conn = MySQLdb.connect('127.0.0.1', 'root', 'anluozjm291..', 'scrapy', charset="utf8",
+        self.conn = pymysql.connect('127.0.0.1', 'root', 'anluozjm291..', 'scrapy', charset="utf8",
                                     use_unicode=True)
         self.cursor = self.conn.cursor()
 
@@ -64,7 +65,7 @@ class MysqlTwistedPipline(object):
             user=settings["MYSQL_USER"],
             passwd=settings["MYSQL_PASSWORD"],
             charset='utf8',
-            cursorclass=MySQLdb.cursors.DictCursor,
+            cursorclass=pymysql.cursors.DictCursor,
             use_unicode=True,
         )
         dbpool = adbapi.ConnectionPool("MySQLdb", **dbparms)
